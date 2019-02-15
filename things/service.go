@@ -15,7 +15,9 @@
 
 package things
 
-import "errors"
+import (
+	"errors"
+)
 
 var (
 	// ErrMalformedEntity indicates malformed entity specification (e.g.
@@ -35,4 +37,12 @@ type PageMetadata struct {
 	Total  uint64
 	Offset uint64
 	Limit  uint64
+}
+
+type thingsService struct {
+	things       ThingRepository
+	channels     ChannelRepository
+	channelCache ChannelCache
+	thingCache   ThingCache
+	idp          IdentityProvider
 }
